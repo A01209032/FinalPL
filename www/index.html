@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dogs</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="running.js"></script>
+</head>
+<body>
+    <div class="registration-form">
+        <form action="upload.php" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <input type="file" value="test.jpg" name="fileToUpload" class="custom-file-input" id="fileToUpload">
+                <label class="custom-file-label" for="fileToUpload" name="fileToUpload" id="fileToUpload">Choose file</label>
+            </div>
+            <div class="form-group">
+                <img id="blah" style='height: 100%; width: 100%; object-fit: contain' class = "img-responsive" src="test.jpg" alt="your image" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Upload Image" name="submit">
+            </div>
+            
+        </form>
+      
+    </div>
+    <div class="registration-form">
+        <form action="AddNewFace.html" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <input type="submit" value="Add new Image" name="submit">
+            </div>
+            
+        </form>
+      
+    </div>
+    <div class="registration-form">
+        <form action="config.php" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <input type="submit" value="config" name="submit">
+            </div>
+            
+        </form>
+      
+    </div>
+    <script>
+        // Add the following code if you want the name of the file appear on select
+        $(".custom-file-input").on("change", function() {
+          var fileName = $(this).val().split("\\").pop();
+          $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+      
+          
+      });
+      $("#fileToUpload").change(function(){
+        if (this.files && this.files[0]) {
+                var reader = new FileReader();
+                
+                reader.onload = function (e) {
+                    $('#blah').attr('src', e.target.result);
+                }
+                
+                reader.readAsDataURL(this.files[0]);
+            }
+        });
+      </script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

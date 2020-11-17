@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Easiest Way to Add Input Masks to Your Forms</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <div class="registration-form">
+      <form action="addUpload.php" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+              <h1>Agregar nueva foto</h1>           </div>
+            <div class="form-group">
+            <div class="form-group">
+              <input type="file" class="form-control item" name="fileToUpload" id="fileToUpload">            </div>
+            <div class="form-group">
+              <input type="text" class="form-control item" name="name" placeholder="Nombre" id="name">            </div>
+            <div class="form-group">
+              <textarea class="form-control item" name="desc" placeholder="Descripción" id="desc"></textarea>            </div>
+            <div class="form-group">
+              <input type="submit" class="form-control item" value="Upload Image" name="submit">
+            </div>
+            
+        </form>
+        
+    </div>
+    <div class="registration-form">
+      <form action="index.html" method="post" enctype="multipart/form-data">
+          <div class="form-group">
+              <input type="submit" value="Return" name="submit">
+          </div>
+          
+      </form>
+    
+  </div>
+    <script>
+      // Add the following code if you want the name of the file appear on select
+      $(".custom-file-input").on("change", function() {
+        var fileName = $(this).val().split("\\").pop();
+        $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+      
+        
+      });
+      $("#customFile").change(function(){
+        if (this.files && this.files[0]) {
+                var reader = new FileReader();
+                
+                reader.onload = function (e) {
+                    $('#blah').attr('src', e.target.result);
+                }
+                
+                reader.readAsDataURL(this.files[0]);
+            }
+        });
+      </script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
