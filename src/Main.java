@@ -4,8 +4,6 @@ import java.util.Date;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import org.opencv.core.Core;
-
 public class Main {
 
 	static final int PORT = 8080;
@@ -14,7 +12,6 @@ public class Main {
 	
 	
     public static void main(String[] args) {
-    	System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
     	ExecutorService pool = Executors.newFixedThreadPool(MAX_T);
     	try {
 			@SuppressWarnings("resource")

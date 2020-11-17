@@ -1,6 +1,8 @@
-import org.opencv.core.CvType;
-import org.opencv.core.Mat;
-import org.opencv.imgcodecs.Imgcodecs;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
 
 public class FaceChecker {
 	
@@ -12,16 +14,23 @@ public class FaceChecker {
 	}
 	
 	public double check() {
-		Mat image;
-		image = Imgcodecs.imread(path);
-		image.convertTo(image, CvType.CV_64FC3);
-		int size = (int) (image.total() * image.channels()); 
-		double[] temp = new double[size];
-		image.get(0, 0, temp);
+		File file = new File(path);
+		BufferedImage image = null;
+        try
+        {
+            image = ImageIO.read(file);
+        } 
+        catch (IOException e) 
+        {
+            e.printStackTrace();
+        }
+        int width = image.getWidth();
+        int height = image.getHeight();
 		int i;
 		Thread[] pixelWorkers = new Thread[threads];
+		long startTime = System.nanoTime();
 		for(i = 0;i<threads;i++) {
-			PixelWorker pw = new PixelWorker(this,i,temp,size,threads);
+			PixelWorker pw = new PixelWorker(this,image,i,width,height,threads);
 			pixelWorkers[i] = new Thread(pw);
 			pixelWorkers[i].start();
 		}
@@ -33,7 +42,10 @@ public class FaceChecker {
 				e.printStackTrace();
 			}
 		}
-		res = res/size;
+		Long endTime = System.nanoTime();
+		endTime = endTime - startTime;
+        System.out.println(String.format("time: %s", endTime.toString()));
+		res = res/(width*height);
 	    return res;
 	}
 	
