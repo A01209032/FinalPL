@@ -1,3 +1,8 @@
+/*
+ * Autor: Samuel Ivan Ramirez Navarro
+ * Contacto: samuel.i.ramirez@gmail.com
+ */
+
 import java.awt.Color;
 import java.awt.image.BufferedImage;
 
@@ -14,10 +19,8 @@ public class PixelWorker implements Runnable {
 		this.master = master;
 		this.image = image;
 		this.id = id;
-		//this.temp = temp;
 		this.width = width;
 		this.height = height;
-		//this.size = size;
 		this.threads = threads;
 	}
 	

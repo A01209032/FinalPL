@@ -1,3 +1,7 @@
+/*
+ * Autor: Samuel Ivan Ramirez Navarro
+ * Contacto: samuel.i.ramirez@gmail.com
+ */
 
 public class Face {
 	private Integer id;

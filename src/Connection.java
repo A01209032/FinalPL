@@ -1,3 +1,8 @@
+/*
+ * Autor: Samuel Ivan Ramirez Navarro
+ * Contacto: samuel.i.ramirez@gmail.com
+ */
+
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.IOException;

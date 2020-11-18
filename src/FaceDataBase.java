@@ -1,3 +1,8 @@
+/*
+ * Autor: Samuel Ivan Ramirez Navarro
+ * Contacto: samuel.i.ramirez@gmail.com
+ */
+
 import java.util.Vector;
 
 public class FaceDataBase {
