@@ -25,7 +25,7 @@
                 <img id="blah" style='height: 100%; width: 100%; object-fit: contain' class = "img-responsive" src="test.jpg" alt="your image" />
             </div>
             <div class="form-group">
-                <input type="submit" value="Upload Image" name="submit">
+                <input type="submit" value="Upload Image" name="submit" disabled>
             </div>
             
         </form>
@@ -60,7 +60,7 @@
       $("#fileToUpload").change(function(){
         if (this.files && this.files[0]) {
                 var reader = new FileReader();
-                
+                $('input:submit').attr('disabled',false);
                 reader.onload = function (e) {
                     $('#blah').attr('src', e.target.result);
                 }

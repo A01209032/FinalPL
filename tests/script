@@ -1,0 +1,12 @@
+#!/bin/sh
+
+curl "127.0.0.1:8080/check;0.jpg"
+curl "127.0.0.1:8080/check;0.jpg"
+curl "127.0.0.1:8080/check;0.jpg"
+curl "127.0.0.1:8080/check;0.jpg"
+curl "127.0.0.1:8080/check;0.jpg"
+curl "127.0.0.1:8080/check;0.jpg"
+curl "127.0.0.1:8080/check;0.jpg"
+curl "127.0.0.1:8080/check;0.jpg"
+curl "127.0.0.1:8080/check;0.jpg"
+curl "127.0.0.1:8080/check;0.jpg"
